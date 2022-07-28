@@ -16,55 +16,36 @@
 
 <body>
 
-  <header class="main-article-header container">
-    <nav class="article-page-nav">
-      <a href="#" class="article-page-logo">
-        <img class="img-fluid" src="./img/FX-HELP-LOGO.svg" alt="company logo" width="113" height="46" />
-      </a>
+  <div class="main-article-header">
+    <header class="container">
+      <nav class="article-page-nav">
+        <a href="#" class="article-page-logo">
+          <img class="img-fluid" src="./img/FX-HELP-LOGO.svg" alt="company logo" width="113" height="46" />
+        </a>
 
-      <ul class="article-page__list">
-        <li class="article-page__item">
-          <a href="#top-stories" class="article-page__link">Top stories</a>
-        </li>
-        <li class="article-page__item">
-          <a href="#news" class="article-page__link">News</a>
-        </li>
-        <li class="article-page__item">
-          <a href="#blog" class="article-page__link">Blog</a>
-        </li>
-      </ul>
+        <ul class="article-page__list">
+          <li class="article-page__item">
+            <a href="#top-stories" class="article-page__link">Top stories</a>
+          </li>
+          <li class="article-page__item">
+            <a href="#news" class="article-page__link">News</a>
+          </li>
+          <li class="article-page__item">
+            <a href="#blog" class="article-page__link">Blog</a>
+          </li>
+        </ul>
 
-      <a href="#" class="btn-amazon btn-amazon__menu">Start Investing in Amazon Now</a>
-      <svg width="33" height="33" class="icon-menu d-xl-none d-lg-none d-block">
-        <use href="./icons/sprite.svg#icon-menu"></use>
-      </svg>
-    </nav>
-  </header>
+        <a href="#" class="btn-amazon btn-amazon__menu">Start Investing in Amazon</a>
 
-  <div role="menu" class="main-article__sidebar-menu">
-    <ul class="article-page__list main-article__sidebar-menu-list">
-      <li class="article-page__item main-article__sidebar-item">
-        <a href="#top-stories" class="article-page__link main-article__sidebar-menu-link">Top stories</a>
-      </li>
-      <li class="article-page__item main-article__sidebar-item">
-        <a href="#news" class="article-page__link main-article__sidebar-menu-link">News</a>
-      </li>
-      <li class="article-page__item main-article__sidebar-item">
-        <a href="#blog" class="article-page__link main-article__sidebar-menu-link">Blog</a>
-      </li>
-      </li>
-    </ul>
-
-    <svg width="33" height="33" class="icon-close">
-      <use href="./icons/sprite.svg#icon-close"></use>
-    </svg>
+      </nav>
+    </header>
   </div>
 
-  <div class="main-article__overlay"></div>
-
-  <hr class="main-article-header_separator container" />
 
   <main class="article-page">
+
+      <hr class="container">
+
     <section id="top-stories" class="article-hero-section container">
       <div class="container">
         <div class="row mb-5">
@@ -164,7 +145,8 @@
               <img class="img-fluid" src="./img/amazon-chart-1.png" alt="amazon company chart" width="1007"
                 height="396" />
 
-              <button type="button" class="btn btn-search btn-search__right" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button type="button" class="btn btn-search btn-search__right" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
               </button>
 
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -178,8 +160,8 @@
                     </div>
 
                     <div class="modal-body">
-                      <img class="img-fluid m-auto black-shadow" src="./img/amazon-chart-1.png" alt="amazon company chart" width="1007"
-                        height="396" />
+                      <img class="img-fluid m-auto black-shadow" src="./img/amazon-chart-1.png"
+                        alt="amazon company chart" width="1007" height="396" />
 
 
                     </div>
@@ -299,8 +281,8 @@
                       </div>
 
                       <div class="modal-body">
-                        <img class="img-fluid m-auto black-shadow" src="./img/amazon-chart-2.png" alt="amazon company chart"
-                          width="805" height="496" />
+                        <img class="img-fluid m-auto black-shadow" src="./img/amazon-chart-2.png"
+                          alt="amazon company chart" width="805" height="496" />
 
                         <p class="modal-body__text text-center">Here’s you can see Amazon Prime user growth in just the
                           US:</p>
@@ -366,7 +348,7 @@
             </p>
           </div>
 
-          <a href="#" class="btn-amazon">Start Investing in Amazon Now</a>
+          <a href="#" class="btn-amazon btn-amazon__left">Start Investing in Amazon</a>
         </div>
       </div>
     </section>
@@ -441,7 +423,7 @@
           </li>
         </ul>
 
-        <a href="#" class="btn-amazon btn-amazon__center">Start Investing in Amazon Now</a>
+        <a href="#" class="btn-amazon btn-amazon__center">Start Investing in Amazon</a>
       </div>
 
       <div class="article-investing__note-container">
@@ -474,7 +456,7 @@
         </li>
       </ul>
 
-      <a href="#" class="btn-amazon">Start Investing in Amazon Now</a>
+      <a href="#" class="btn-amazon">Start Investing in Amazon</a>
     </div>
 
     <div class="article-page-footer__all-rights-reserved">
@@ -489,8 +471,12 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-  <script src="js/article-page.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 
+    <script src="js/article-page.js"></script>
 </body>
 
 </html>
