@@ -1059,6 +1059,10 @@ img {
   .article-page-logo__footer {
     width: 90px;
   }
+  .modal-body__text {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
 }
 
 @media (max-width: 375px) {
