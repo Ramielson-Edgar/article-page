@@ -911,7 +911,7 @@ img {
   .article-make-money-item,
   .article-page-footer__menu,
   .article-page-footer__all-rights-reserved {
-    padding-inline: 10px;
+    padding: 0 10px;
   }
   .article-page__list-footer {
     display: -ms-grid;
