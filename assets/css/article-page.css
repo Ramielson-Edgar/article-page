@@ -82,7 +82,7 @@ img {
   width: 66px;
   height: 60px;
   cursor: pointer;
-  background-image: url("/icons/icon-search.svg");
+  background-image: url("../../icons/icon-search.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 40%;
@@ -307,7 +307,7 @@ img {
 }
 
 .banner-right-img {
-  background-image: url("/img/banner-right-alexa.jpg");
+  background-image: url("../../img/banner-right-alexa.jpg");
   background-repeat: no-repeat;
   background-position: 100% 23%;
   background-size: 15%;
@@ -646,7 +646,7 @@ img {
 }
 
 .article-hero-section {
-  background-image: url("/img/main-hero-amazon.png");
+  background-image: url("../../img/main-hero-amazon.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: contain;
@@ -662,7 +662,7 @@ img {
 }
 
 .banner-left-img {
-  background-image: url("/img/banner-left-amazon.png");
+  background-image: url("../../img/banner-left-amazon.png");
   background-repeat: no-repeat;
   background-size: auto;
   background-position: 0 10rem;
@@ -729,7 +729,7 @@ img {
 }
 
 .btn-close {
-  background-image: url("/icons/icon-close.svg");
+  background-image: url("../../icons/icon-close.svg");
 }
 
 .modal-body__text {
@@ -761,7 +761,7 @@ img {
     display: none;
   }
   .banner-left-img {
-    background-image: url("/img/banner-left-amazon__991.png");
+    background-image: url("../../img/banner-left-amazon__991.png");
     background-position: -70px 10rem;
   }
   .main-article__sidebar-menu-list {
@@ -871,7 +871,7 @@ img {
     top: 30px;
   }
   .banner-left-img {
-    background-image: url("/img/banner-left-amazon__767.png");
+    background-image: url("../../img/banner-left-amazon__767.png");
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
