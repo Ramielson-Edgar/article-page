@@ -1,0 +1,623 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+$base-font-family: 'Roboto', sans-serif;
+
+$header-50: clamp(1.31rem, calc(0.61rem + 3.54vw), 3.13rem);
+$header-40: clamp(1.31rem, calc(0.85rem + 2.32vw), 2.5rem);
+$header-25: clamp(1.31rem, calc(1.21rem + 0.49vw), 1.56rem);
+$header-30: clamp(1.31rem, calc(1.09rem + 1.1vw), 1.88rem);
+$text-20: clamp(1.25rem, calc(1.34rem + -0.12vw), 1.31rem);
+
+$text-header-color: #343434;
+$text-white-color: #fff;
+$text-color: #252525;
+$link-static-color: #6a6a6a;
+
+$btn-color: #18CE42;
+
+$link-color: #2c67fe;
+$social-media-color: #d9d9d9;
+
+$primary-surface-color: #fff;
+$secondary-surface-color: #000;
+
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-700: 700;
+
+$z-index-top: 100;
+$z-index-minus: -1;
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $base-font-family;
+  font-size: $text-20;
+  font-weight: $font-weight-400;
+  line-height: 36px;
+  color: $text-color;
+
+  background-color: $primary-surface-color;
+  margin: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+%list-style {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+%base-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+%base-img-property {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin center-flex($type: 'all') {
+  display: flex;
+
+  @if ($type =='all') {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @else if ($type =='hor') {
+    justify-content: center;
+  }
+
+  @else if ($type =='ver') {
+    align-items: center;
+  }
+}
+
+@mixin flex-grid($size, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($size, 1fr));
+  gap: $gap;
+}
+
+@mixin grid-column($repeat, $width, $gap) {
+  display: grid;
+  grid-template-columns: repeat($repeat, $width);
+  gap: $gap;
+}
+
+.btn-copy-trading {
+  padding: 23px 71px;
+  font-weight: $font-weight-400;
+  color: $text-white-color;
+  cursor: pointer;
+
+  font-size: 1rem;
+  line-height: 1rem * 1.5;
+
+  text-decoration: none;
+  text-transform: capitalize;
+
+  border-radius: 7px;
+  background-color: $btn-color;
+  transition: all 0.2s linear;
+
+  &:focus,
+  &:hover {
+    color: $text-white-color;
+    background-color: #17C33E;
+  }
+}
+
+.section-padding {
+  padding: 70px 0;
+}
+
+.main-article-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $text-white-color;
+  z-index: 10;
+
+  transition: all 0.3s ease-in;
+}
+
+.main-article-header.show-shadow {
+  box-shadow: 20px 20px 50px -20px rgba(177, 177, 177, 0.2);
+}
+
+.article-page__list {
+  @extend %list-style;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 1fr;
+  gap: 70px;
+}
+
+.article-page__link {
+  position: relative;
+
+  font-size: 1rem;
+  text-decoration: none;
+  color: $link-static-color;
+  transition: all 0.3s ease-in;
+
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
+}
+
+.article-page__link:after,
+.article-page__link:after {
+  position: absolute;
+  display: block;
+  content: '';
+
+  width: 0;
+  height: 2px;
+
+  background-color: $link-color;
+  outline: none;
+  border: none;
+
+  transition: all 0.2s ease-in;
+}
+
+.article-page__link:focus:after,
+.article-page__link:hover:after {
+  width: 100%;
+}
+
+.article-page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.article-page-footer__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-page__link-footer {
+  color: $text-white-color;
+}
+
+.article-page-footer,
+.article-page-footer__menu {
+  background-color: #262626;
+}
+
+.article-page-footer__all-rights-reserved {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.2);
+  background-color: #202020;
+  padding: 20px 0;
+}
+
+.article-page-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-page-footer__menu {
+  padding: 50px 0;
+}
+
+
+.copy-trading-hero {
+  background-color: #343434;
+  padding: 150px 0 80px;
+  background-image: url('/img/copy-trading-banner.png'), url('/img/green-circle.png');
+  background-position: 75% 100%, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 45%, cover;
+}
+
+.copy-trading_author {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.copy-trading__author-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 170px;
+}
+
+.copy-trading__author-data {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.copy-trading__title {
+  max-width: 356px;
+  color: $text-white-color;
+  font-size: $header-50;
+  font-weight: $font-weight-700;
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+.copy-trading__author-name {
+  font-size: 14px;
+  color: $text-white-color;
+  font-weight: $font-weight-700;
+}
+
+.copy-trading__author-date {
+  font-size: 10px;
+  line-height: 14px;
+  color: #6a6a6a;
+}
+
+.author-black-shadow {
+  filter: drop-shadow(0px 6px 20px rgba(125, 125, 125, 0.2));
+}
+
+.copy-trading__social-media-icon {
+  fill: #2c67fe;
+
+  &:hover,
+  &:focus {
+    fill: #5787ff;
+  }
+}
+
+.copy-trading__social-media {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  max-width: 122px;
+  gap: 26px;
+}
+
+.copy-trading__description-wrapper {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 36px;
+}
+
+
+.what-copy {
+  padding: 0 0 80px;
+}
+
+.what-copy__note-container {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 20px;
+  padding: 30px;
+  margin: 70px 0;
+  position: relative;
+  background-color: #F9F9F9;
+
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: $link-color;
+  }
+}
+
+.icon-document {
+  margin-top: 10px;
+}
+
+.what-copy__note-header {
+  font-weight: $font-weight-700;
+}
+
+.copy-trading__paragraph {
+  color: $text-color;
+}
+
+.start-generating {
+  padding: 0 0 70px;
+}
+
+
+.start-generating__sub-header,
+.start-generating__title,
+.what-copy__title {
+  font-weight: $font-weight-700;
+  margin-bottom: 40px;
+}
+
+.what-copy__list {
+  @extend %list-style;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 90px;
+  margin: 50px 0 50px;
+}
+
+.what-copy__header {
+  font-weight: $font-weight-700;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.what-copy__item {
+  max-width: 800px;
+  padding-bottom: 40px;
+}
+
+.what-copy__item:not(:last-child) {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.what-copy__img-description {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-top: 26px;
+}
+
+.start-generating__paragraph {
+  color: #aaaaaa;
+  font-size: 1.563rem;
+}
+
+
+.start-generating__step {
+  font-weight: $font-weight-700
+}
+
+.start-generating__list {
+  @extend %list-style;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  max-width: 800px;
+  margin-bottom: 70px;
+}
+
+.start-generating__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+}
+
+.start-generating__bottom-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-copy-trading__footer {
+  color: $btn-color;
+  border: 2px solid $btn-color;
+  background-color: transparent;
+
+  &:focus,
+  &:hover {
+    color: $text-white-color;
+    background-color: $btn-color;
+  }
+}
+
+
+@media (max-width: 1198px) {
+  .copy-trading-hero {
+    background-position: 80% 100%, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 520px, cover;
+
+  }
+}
+
+@media (max-width: 991.98px) {
+  .article-page__list {
+    display: none;
+  }
+
+  .forex-hero__title {
+    font-size: $header-30;
+    max-width: 330px;
+  }
+
+
+  .copy-trading__description,
+  .copy-trading__header {
+    @include center-flex('all')
+  }
+
+  .copy-trading-hero {
+    background-image:url("/img/copy-trading-banner.png"), url('/img/green-circle__991.png');
+    background-position: 50% 100%, 100% 50%;
+    background-size: 45%, cover;
+
+    padding: 100px 0 30%;
+  }
+
+  .copy-trading__title {max-width: 100%;}
+  .copy-trading__description {
+    align-items: unset;
+  }
+
+  .copy-trading__description-wrapper {margin-right: 30px;}
+  .copy-trading__author-data {align-items: baseline;}
+
+  .start-generating__sub-header {
+    max-width: 600px;
+  }
+  
+
+}
+
+@media (max-width: 767.98px) {
+  .what-copy {
+    padding: 0 0 50px;
+  }
+
+  .what-copy__note-container {padding: 20px;}
+
+  .start-generating__text,
+  .start-generating__step,
+  .what-copy__text,
+  .copy-trading__paragraph {
+    font-size: 1rem;
+    line-height: 24px;
+  }
+
+  .start-generating__title {
+    margin-bottom: 20px;
+  }
+
+  .what-copy__note-link {font-size: 14px;}
+
+
+  .what-copy__list {
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .start-generating__item {gap: 10px;}
+
+}
+
+@media (max-width: 575.98px) {
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .start-generating__sub-header  {
+    font-size: 1.2rem;
+    line-height: 24px;
+    max-width: 420px;
+  }
+
+  .what-copy__note-container {
+    margin:0 0 50px;
+  }
+
+  .what-copy__title {
+    margin-bottom: 20px;
+    line-height: 36px;
+  }
+
+
+  .what-copy__item:not(:last-child) {padding-bottom: 40px;}
+
+  .copy-trading-hero {
+    background-position: 50% 100%, center 90px;
+    background-size: 60%, cover;
+
+    padding: 100px 0 40%;
+  }
+
+  .copy-trading__description-wrapper {margin-right: 10px;}
+  .what-copy__note-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .what-copy__note-header {margin-bottom: 30px;}
+  .icon-document {margin-top: 0;}
+
+  .btn-copy-trading  {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .copy-trading__title {
+    margin-bottom: 20px;
+  }
+
+  .start-generating__list,
+  .start-generating__item {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 10px;
+  }
+
+  .start-generating__list {
+    gap:50px;
+    margin-bottom: 50px;
+  }
+
+  .copy-trading__social-media {gap: 10px;}
+
+  .start-generating__title {
+    font-size: 20px;
+  }
+
+  .what-copy__img-description {
+    line-height: 20px;
+  }
+
+  .what-copy__list {
+    margin: 50px 0 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .copy-trading__description-wrapper {margin-bottom: 0;}
+  .copy-trading-hero {
+    padding: 80px 0 50%;
+  }
+
+  .copy-trading__description {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .copy-trading__header {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+}
+
+
+@media (max-width: 320px) {
+  .copy-trading__paragraph {
+    font-size: 15px;
+  }
+}
