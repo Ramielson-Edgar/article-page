@@ -444,7 +444,11 @@ img {
 
 .btn-copy-trading__footer,
 .btn-copy-trading__menu {
-  padding: 15px;
+  padding: 10px;
+}
+
+.copy-trading-footer__menu {
+  padding: 40px 0;
 }
 
 @media (max-width: 1198px) {
@@ -473,7 +477,7 @@ img {
   }
 
   .copy-trading-hero {
-    background-image:url("../../img/copy-trading-banner.png"), url('../../img/green-circle__991.png');
+    background-image:url("../img/copy-trading-banner.png"), url('../img/green-circle__991.png');
     background-position: 50% 100%, 100% 50%;
     background-size: 45%, cover;
 
@@ -618,6 +622,17 @@ img {
     justify-content: flex-start;
   }
   
+  .article-page-footer__menu {
+    padding: 15px 0 30px;
+  }
+
+
+  .btn-copy-trading__footer,
+  .btn-copy-trading__menu {
+    padding: 10px;
+    font-size: 14px;
+    
+  }
 }
 
 
