@@ -1,28 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
-$base-font-family: 'Lato', sans-serif;
+$base-font-family: 'Roboto', sans-serif;
 
-$base-font-size: clamp(1.25rem, calc(1.34rem + -0.12vw), 1.31rem);
 $header-50: clamp(1.31rem, calc(0.61rem + 3.54vw), 3.13rem);
 $header-40: clamp(1.31rem, calc(0.85rem + 2.32vw), 2.5rem);
+$header-25: clamp(1.31rem, calc(1.21rem + 0.49vw), 1.56rem);
 $header-30: clamp(1.31rem, calc(1.09rem + 1.1vw), 1.88rem);
-$header-24: clamp(1.31rem, calc(1.24rem + 0.37vw), 1.5rem);
-$header-20: clamp(1.25rem, calc(1.34rem + -0.12vw), 1.31rem);
+$text-20: clamp(1.25rem, calc(1.34rem + -0.12vw), 1.31rem);
 
-$main-blue-background-color: #2c67fe;
-$img-frame-background-color: #fcfcfc;
+$text-header-color: #343434;
+$text-white-color: #fff;
+$text-color: #252525;
+$link-static-color: #6a6a6a;
+
+$btn-color: #18CE42;
+
+$link-color: #2c67fe;
 $social-media-color: #d9d9d9;
 
 $primary-surface-color: #fff;
 $secondary-surface-color: #000;
-
-$text-header-color: #011341;
-$text-white-color: #fff;
-$text-description-color: #383838;
-$count-text-color: #f3f3f3;
-$text-light-grey-color: #38383863;
-
-$side-line: #cdcdcd;
 
 $font-weight-400: 400;
 $font-weight-500: 500;
@@ -37,12 +34,10 @@ html {
 
 body {
   font-family: $base-font-family;
-  font-size: $base-font-size;
+  font-size: $text-20;
   font-weight: $font-weight-400;
   line-height: 36px;
-  color: $text-header-color;
-
-  overflow-x: hidden;
+  color: $text-color;
 
   background-color: $primary-surface-color;
   margin: 0;
@@ -87,12 +82,16 @@ img {
 @mixin center-flex($type: 'all') {
   display: flex;
 
-  @if ($type == 'all') {
+  @if ($type =='all') {
     justify-content: center;
     align-items: center;
-  } @else if ($type == 'hor') {
+  }
+
+  @else if ($type =='hor') {
     justify-content: center;
-  } @else if ($type == 'ver') {
+  }
+
+  @else if ($type =='ver') {
     align-items: center;
   }
 }
@@ -109,8 +108,8 @@ img {
   gap: $gap;
 }
 
-.btn-amazon {
-  padding: 10px;
+.btn-copy-trading {
+  padding: 23px 71px;
   font-weight: $font-weight-400;
   color: $text-white-color;
   cursor: pointer;
@@ -121,62 +120,19 @@ img {
   text-decoration: none;
   text-transform: capitalize;
 
-  background-color: $main-blue-background-color;
-  box-shadow: 20px 20px 50px -10px rgba(44, 103, 254, 0.2);
+  border-radius: 7px;
+  background-color: $btn-color;
   transition: all 0.2s linear;
 
   &:focus,
   &:hover {
     color: $text-white-color;
-    background-color: #5787ff;
+    background-color: #17C33E;
   }
-}
-
-.btn-amazon__left,
-.btn-amazon__center {
-  padding: 20px;
 }
 
 .section-padding {
   padding: 70px 0;
-}
-
-.white-background {
-  background-color: unset;
-}
-
-.article__frame-img {
-  position: relative;
-  padding: 30px;
-  background-color: $img-frame-background-color;
-}
-
-.btn-search {
-  position: absolute;
-  bottom: 30px;
-  left: -20px;
-
-  width: 66px;
-  height: 60px;
-
-  cursor: pointer;
-  background-image: url('../../icons/icon-search.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 40%;
-
-  background-color: $main-blue-background-color;
-  box-shadow: 1px 24px 50px -5px rgba(44, 103, 254, 0.3);
-}
-
-.btn-search__right {
-  bottom: 20px;
-  right: 20px;
-  left: unset;
-}
-
-.article-page {
-  padding-top: 60px;
 }
 
 .main-article-header {
@@ -190,17 +146,7 @@ img {
 }
 
 .main-article-header.show-shadow {
-  box-shadow: (20px 20px 50px -20px rgba(23, 23, 23, 0.2));
-}
-
-.article-make-money__title,
-.article-hero__title {
-  font-weight: $font-weight-700;
-}
-
-.article-hero__title {
-  max-width: 650px;
-  margin-bottom: 37px;
+  box-shadow: 20px 20px 50px -20px rgba(177, 177, 177, 0.2);
 }
 
 .article-page__list {
@@ -216,11 +162,12 @@ img {
 
   font-size: 1rem;
   text-decoration: none;
-  color: $text-description-color;
+  color: $link-static-color;
   transition: all 0.3s ease-in;
+
   &:hover,
   &:focus {
-    color: $main-blue-background-color;
+    color: $link-color;
   }
 }
 
@@ -233,7 +180,7 @@ img {
   width: 0;
   height: 2px;
 
-  background-color: $main-blue-background-color;
+  background-color: $link-color;
   outline: none;
   border: none;
 
@@ -250,362 +197,6 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-}
-
-.article-hero__author-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 140px;
-}
-
-.article-hero__data {
-  font-size: 0.8rem;
-  line-height: 16px;
-  color: $text-light-grey-color;
-}
-
-.article-hero__author-name {
-  font-size: 0.625rem;
-  line-height: 15px;
-  font-weight: $font-weight-700;
-}
-
-.article-hero__header {
-  padding: 40px;
-  background-color: $text-white-color;
-}
-
-.article-hero__article {
-  position: relative;
-  padding-inline: 40px;
-  max-width: 773px;
-  background-color: $text-white-color;
-
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    display: inline-block;
-    content: '';
-
-    width: 1px;
-    height: 189px;
-
-    background-color: #cdcdcd;
-  }
-}
-
-.article-hero__social-media-list {
-  @extend %list-style;
-  @include grid-column(3, auto, 20px);
-}
-
-.article-hero__star-list {
-  @extend %list-style;
-  @include grid-column(5, auto, 5px);
-}
-
-.article-hero__social-media {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 620px;
-}
-
-.article-hero__social-media-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-
-  fill: #d9d9d9;
-  transition: all 0.2s ease-in;
-  &:hover {
-    fill: $main-blue-background-color;
-  }
-}
-
-.icon-menu {
-  &:hover {
-    fill: $main-blue-background-color;
-  }
-}
-
-.article-hero__author-container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 25px;
-
-  margin-bottom: 37px;
-}
-
-.article-hero__paragraph-first {
-  margin-bottom: 47px;
-}
-
-.banner-right-img {
-  background-image: url('../../img/banner-right-alexa.jpg');
-  background-repeat: no-repeat;
-  background-position: 100% 23%;
-  background-size: 15%;
-}
-
-.article-make-money__header {
-  position: relative;
-  padding: 0 40px 40px 40px;
-  background-color: $primary-surface-color;
-
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    display: inline-block;
-    content: '';
-
-    width: 1px;
-    height: 189px;
-
-    background-color: #cdcdcd;
-  }
-}
-
-.article-make-money__title {
-  margin-bottom: 36px;
-}
-
-.article-make-money__description {
-  max-width: 620px;
-}
-
-.article-make-money-item,
-.article-make-money__item {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px;
-}
-
-.article-make-money-item__count,
-.article-make-money__count {
-  font-size: clamp(1.31rem, calc(0.36rem + 4.76vw), 3.75rem);
-  font-weight: $font-weight-700;
-  color: #f3f3f3;
-}
-
-.article-make-money-item___header,
-.article-make-money__item-header {
-  font-size: $header-30;
-  font-weight: $font-weight-700;
-  margin-bottom: 30px;
-}
-
-.article-make-money-item__description,
-.article-make-money__item-description {
-  color: $text-description-color;
-}
-
-.article-make-money-item {
-  position: relative;
-  padding-left: 77px;
-  margin-bottom: 35px;
-  gap: 70px;
-
-  margin-top: 50px;
-
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    display: inline-block;
-    content: '';
-
-    width: 1px;
-    height: 189px;
-
-    background-color: #cdcdcd;
-  }
-}
-
-.article-make-money-item__description {
-  max-width: 720px;
-}
-
-.article-make-money__frame-description {
-  font-size: 1.5rem;
-  color: #bebebe;
-}
-
-.article-make-money__paragraph-list {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 60px;
-}
-
-.article-make-money__paragraph-item {
-  max-width: 800px;
-}
-
-.article-make-money__paragraph-item:not(:last-child) {
-  margin-bottom: 30px;
-}
-
-.article-make__amazon-header {
-  font-weight: $font-weight-700;
-  margin-bottom: 20px;
-}
-
-.article-make__other-sub-header {
-  color: #727272;
-  font-weight: $font-weight-700;
-}
-
-.article-make-money__text {
-  position: relative;
-  padding-left: 120px;
-  background-color: $text-white-color;
-
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    display: inline-block;
-    content: '';
-
-    width: 1px;
-    height: 100%;
-
-    background-color: #cdcdcd;
-  }
-}
-
-.article-make-money__list {
-  background-color: $text-white-color;
-  margin: 0;
-}
-
-.article-make__amazon-owns {
-  margin-bottom: 60px;
-  max-width: 830px;
-}
-
-.article-investing__header {
-  margin-bottom: 50px;
-}
-
-.article-investing__item {
-  display: grid;
-  grid-template-columns: auto 50px 1fr;
-  align-items: center;
-  gap: 100px;
-
-  height: 200px;
-}
-
-.article-investing__body {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 45px;
-  align-items: center;
-}
-
-.article-investing__item-text {
-  font-size: 1.875rem;
-  line-height: 45px;
-}
-
-.article-investing__item-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 30px;
-}
-
-.article-investing__step {
-  font-size: $header-50;
-  font-weight: $font-weight-700;
-}
-
-.article-investing__count {
-  font-size: $header-50;
-}
-
-.article-investing__sub-description {
-  max-width: 727px;
-  font-size: $header-30;
-  font-weight: $font-weight-700;
-  text-align: center;
-
-  margin: 0 auto;
-  margin-bottom: 50px;
-}
-
-.article-investing__list {
-  @extend %list-style;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 50px;
-}
-
-.article-investing__item {
-  padding: 30px 50px;
-}
-
-.icon-click {
-  color: $text-white-color;
-  background-color: #a6c4ff;
-}
-
-.icon-register {
-  color: $text-header-color;
-  background-color: #f8f8f8;
-}
-
-.icon-verified {
-  color: $text-white-color;
-  background-color: #1d1d1d;
-}
-
-.article-investing__description {
-  color: $text-description-color;
-  max-width: 1072px;
-  margin-bottom: 20px;
-}
-
-.article-investing__title {
-  max-width: 700px;
-  font-size: $header-30;
-  font-weight: $font-weight-700;
-  line-height: 45px;
-  margin-bottom: 30px;
-}
-
-.article-investing__note-header {
-  font-weight: $font-weight-700;
-}
-
-.article-investing__link {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-.article-investing__note-container {
-  position: relative;
-  padding: 50px;
-  margin-top: 50px;
-  background-color: #f9f9f9;
-  border-left: 9px solid $main-blue-background-color;
-}
-
-.article-investing__wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .article-page-footer__menu {
@@ -646,60 +237,217 @@ img {
   padding: 50px 0;
 }
 
-.article-hero-section {
-  background-image: url('../../img/main-hero-amazon.png');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: contain;
-  overflow-x: visible;
+
+.copy-trading-hero {
+  background-color: #343434;
+  padding: 150px 0 80px;
+  background-image: url('/img/copy-trading-banner.png'), url('/img/green-circle.png');
+  background-position: 75% 100%, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 45%, cover;
 }
 
-.overflow-left {
-  padding-left: unset;
-}
-
-.article-hero-section {
-  padding: 280px 0 80px;
-}
-
-.banner-left-img {
-  background-image: url('../../img/banner-left-amazon.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 0 10rem;
-
-  background-color: $text-white-color;
-}
-
-.article-make__money__frame-description {
+.copy-trading_author {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 40px;
 }
 
-.modal-header {
-  border: none;
+.copy-trading__author-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 170px;
 }
 
-.btn-close {
-  background-image: url('../../icons/icon-close.svg');
+.copy-trading__author-data {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
 }
 
-.modal-body__text {
-  margin-top: 20px;
-  color: $text-description-color;
+.copy-trading__title {
+  max-width: 356px;
+  color: $text-white-color;
+  font-size: $header-50;
+  font-weight: $font-weight-700;
+  line-height: 1.1;
+  margin-bottom: 40px;
 }
 
-.black-shadow {
-  filter: drop-shadow(70px 70px 150px rgba(0, 0, 0, 0.07));
+.copy-trading__author-name {
+  font-size: 14px;
+  color: $text-white-color;
+  font-weight: $font-weight-700;
 }
+
+.copy-trading__author-date {
+  font-size: 10px;
+  line-height: 14px;
+  color: #6a6a6a;
+}
+
+.author-black-shadow {
+  filter: drop-shadow(0px 6px 20px rgba(125, 125, 125, 0.2));
+}
+
+.copy-trading__social-media-icon {
+  fill: #2c67fe;
+
+  &:hover,
+  &:focus {
+    fill: #5787ff;
+  }
+}
+
+.copy-trading__social-media {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  max-width: 122px;
+  gap: 26px;
+}
+
+.copy-trading__description-wrapper {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 36px;
+}
+
+
+.what-copy {
+  padding: 0 0 80px;
+}
+
+.what-copy__note-container {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 20px;
+  padding: 30px;
+  margin: 70px 0;
+  position: relative;
+  background-color: #F9F9F9;
+
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: $link-color;
+  }
+}
+
+.icon-document {
+  margin-top: 10px;
+}
+
+.what-copy__note-header {
+  font-weight: $font-weight-700;
+}
+
+.copy-trading__paragraph {
+  color: $text-color;
+}
+
+.start-generating {
+  padding: 0 0 70px;
+}
+
+
+.start-generating__sub-header,
+.start-generating__title,
+.what-copy__title {
+  font-weight: $font-weight-700;
+  margin-bottom: 40px;
+}
+
+.what-copy__list {
+  @extend %list-style;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 90px;
+  margin: 50px 0 50px;
+}
+
+.what-copy__header {
+  font-weight: $font-weight-700;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.what-copy__item {
+  max-width: 800px;
+  padding-bottom: 40px;
+}
+
+.what-copy__item:not(:last-child) {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.what-copy__img-description {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-top: 26px;
+}
+
+.start-generating__paragraph {
+  color: #aaaaaa;
+  font-size: 1.563rem;
+}
+
+
+.start-generating__step {
+  font-weight: $font-weight-700
+}
+
+.start-generating__list {
+  @extend %list-style;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  max-width: 800px;
+  margin-bottom: 70px;
+}
+
+.start-generating__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+}
+
+.start-generating__bottom-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-copy-trading__footer {
+  color: $btn-color;
+  border: 2px solid $btn-color;
+  background-color: transparent;
+
+  &:focus,
+  &:hover {
+    color: $text-white-color;
+    background-color: $btn-color;
+  }
+}
+
 
 @media (max-width: 1198px) {
-  .article-hero__title {
-    font-size: $header-24;
-  }
+  .copy-trading-hero {
+    background-position: 80% 100%, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 520px, cover;
 
-  .article-hero__social-media-icon {
-    width: 26px;
-    height: 18px;
   }
 }
 
@@ -708,406 +456,168 @@ img {
     display: none;
   }
 
-  .banner-left-img {
-    background-image: url('../../img/banner-left-amazon__991.png');
-    background-position: -70px 10rem;
-  }
-
-  .main-article__sidebar-menu-list {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    gap: unset;
-  }
-
-  .article-hero-section {
-    padding: 150px 0 80px;
-  }
-
-  .article-make-money-item {
-    padding-left: 45px;
-    gap: 45px;
-  }
-
-  .article-make-money__list {
-    padding: 0 0 0 20px;
-  }
-
-  .article-make-money__text {
-    padding-left: 40px;
-  }
-
-  .article-investing__item {
-    height: auto;
-    padding: 30px;
-    gap: 40px;
-  }
-
-  .article-investing__step {
+  .forex-hero__title {
     font-size: $header-30;
+    max-width: 330px;
   }
 
-  .article-investing__item-header {
-    gap: 30px;
+
+  .copy-trading__description,
+  .copy-trading__header {
+    @include center-flex('all')
   }
 
-  .article-investing__body {
-    grid-template-columns: 50px 1fr;
+  .copy-trading-hero {
+    background-image:url("/img/copy-trading-banner.png"), url('/img/green-circle__991.png');
+    background-position: 50% 100%, 100% 50%;
+    background-size: 45%, cover;
+
+    padding: 100px 0 30%;
   }
 
-  .article-investing__item-text {
-    font-size: 1.25rem;
-    line-height: 30px;
+  .copy-trading__title {max-width: 100%;}
+  .copy-trading__description {
+    align-items: unset;
   }
 
-  .article-investing__count {
-    font-size: 2.5rem;
-  }
+  .copy-trading__description-wrapper {margin-right: 30px;}
+  .copy-trading__author-data {align-items: baseline;}
 
-  .icon-click__img {
-    width: 120px;
+  .start-generating__sub-header {
+    max-width: 600px;
   }
+  
+
 }
 
 @media (max-width: 767.98px) {
+  .what-copy {
+    padding: 0 0 50px;
+  }
+
+  .what-copy__note-container {padding: 20px;}
+
+  .start-generating__text,
+  .start-generating__step,
+  .what-copy__text,
+  .copy-trading__paragraph {
+    font-size: 1rem;
+    line-height: 24px;
+  }
+
+  .start-generating__title {
+    margin-bottom: 20px;
+  }
+
+  .what-copy__note-link {font-size: 14px;}
+
+
+  .what-copy__list {
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .start-generating__item {gap: 10px;}
+
+}
+
+@media (max-width: 575.98px) {
   .section-padding {
     padding: 50px 0;
   }
 
-  .overflow-left {
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
-  }
-
-  .article-hero-section {
-    padding: 120px 0 80px;
-  }
-
-  .banner-right-img,
-  .banner-left-img {
-    background-image: url('');
-  }
-
-  .article-investing__description,
-  .article-investing__note-text,
-  .article-make-money__paragraph-item,
-  .article-make-money__paragraph-text,
-  .article-make__amazon-paragraph,
-  .article-hero__paragraph,
-  .article-make-money__description,
-  .article-make-money__item-description,
-  .article-make-money-item__description {
-    font-size: 1rem;
+  .start-generating__sub-header  {
+    font-size: 1.2rem;
     line-height: 24px;
+    max-width: 420px;
   }
 
-  .article-make-money__title {
-    margin-bottom: 24px;
+  .what-copy__note-container {
+    margin:0 0 50px;
   }
 
-  .article-make-money-item,
-  .article-make-money__list {
-    padding: 0;
-  }
-
-  .article-make-money-item::after {
-    display: none;
-  }
-
-  .article-make-money-item {
-    gap: 30px;
-  }
-
-  .article-make-money__header {
-    padding: 70px 40px 40px;
-  }
-
-  .article-make-money__header::after {
-    margin-bottom: 40px;
-    width: 80%;
-    height: 1px;
-    right: 50px;
-    top: 30px;
-  }
-
-  .banner-left-img {
-    background-image: url('../../img/banner-left-amazon__767.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
-    padding: 240px 0 0;
-  }
-
-  .white-background {
-    background-color: $text-white-color;
-  }
-
-  .article-make-money__text {
-    padding-left: 0;
-    &::before {
-      display: none;
-    }
-  }
-
-  .article-make__money__frame-description {
-    font-size: 14px;
-  }
-
-  .article-make__other-sub-header {
+  .what-copy__title {
     margin-bottom: 20px;
-  }
-  .article-make__amazon-header {
-    text-align: left !important;
-  }
-
-  .article-make__other-sub-header,
-  .article-investing__item-text {
-    font-size: 1rem;
-    line-height: 24px;
-  }
-
-  .article-investing__body {
-    grid-template-columns: 30px 1fr;
-  }
-
-  .article-investing__count {
-    font-size: 1.7rem;
-  }
-
-  .article-investing__title {
-    font-size: $header-30;
     line-height: 36px;
   }
 
-  .article-investing__step {
-    font-size: $header-20;
+
+  .what-copy__item:not(:last-child) {padding-bottom: 40px;}
+
+  .copy-trading-hero {
+    background-position: 50% 100%, center 90px;
+    background-size: 60%, cover;
+
+    padding: 100px 0 40%;
   }
 
-  .article-hero-section {
-    padding: 120px 0 50px;
-  }
-
-  .article-make__amazon-owns {
-    margin-bottom: 40px;
-  }
-
-  .article-investing__link {
-    margin-left: unset;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .article-make-money-item__count,
-  .article-make-money__count {
-    display: none;
-  }
-
-  .btn-search,
-  .btn-search__right {
-    left: 10px;
-    top: 10px;
-    right: unset;
-
-    width: 30px;
-    height: 30px;
-  }
-
-  .article-make__money__frame-description {
-    line-height: 21px;
-  }
-
-  .article-investing__step {
-    font-size: 1.7rem;
-  }
-
-  .article-investing__note-container {
-    padding: 30px;
-  }
-
-  .section-padding {
-    padding: 50px 10px;
-  }
-
-  .article-make-money__header {
-    padding: 70px 40px 40px;
-  }
-
-  .article-make-money-item {
-    gap: 0;
-  }
-
-  .article-investing__link {
-    font-size: 1rem;
-  }
-
-  .article-page-footer__menu {
+  .copy-trading__description-wrapper {margin-right: 10px;}
+  .what-copy__note-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 50px;
   }
 
-  .btn-amazon__footer {
-    max-width: 209px;
-  }
+  .what-copy__note-header {margin-bottom: 30px;}
+  .icon-document {margin-top: 0;}
 
-  .banner-right-img,
-  .article-make-money-item,
-  .article-page-footer__menu,
-  .article-page-footer__all-rights-reserved {
-    padding: 0 10px;
-  }
-
-  .article-page__list-footer {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .article-investing__note-header {
-    font-size: $header-20;
-  }
-
-  .article-investing__note-text {
-    font-size: 14px;
-  }
-
-  .article-investing__title {
-    line-height: 30px;
-  }
-
-  .article-hero__article {
-    padding: 0 12px;
-    margin-top: 24px;
-  }
-
-  .overflow-left {
-    padding-left: 0;
-    border-bottom: 1px solid #f5f5f5;
-  }
-
-  .article-hero__header {
-    padding: 40px 12px;
-  }
-
-  .article-hero__article::before {
-    display: none;
-  }
-
-  .article-hero__social-media-list {
-    gap: 10px;
-  }
-
-  .article-make__other-sub-header {
-    text-align: center;
-  }
-
-  .article-make__money__frame-description {
-    margin-bottom: 30px;
-  }
-
-  .article-investing__item {
-    display: grid;
-    grid-template-columns: 35px 1fr;
-    grid-template-rows: 30px 1fr;
-    grid-template-areas:
-      'icon-step article-investing__item-header'
-      'icon-step article-investing__item-text';
-
-    gap: 10px 30px;
-  }
-
-  .article-investing__item-header {
-    align-items: inherit;
-  }
-
-  .icon-click__img {
-    grid-area: icon-click__img;
-  }
-
-  .article-investing__item-header {
-    grid-area: article-investing__item-header;
-  }
-
-  .article-investing__item-text {
-    grid-area: article-investing__item-text;
-  }
-
-  .article-page-logo {
-    width: 60px;
-    height: 20px;
-  }
-
-  .btn-amazon__menu {
-    font-size: 13px;
-  }
-
-  .modal-menu {
-    display: block;
-    width: 34px;
-    height: 33px;
-    background-color: #000;
-  }
-
-  .article-page-logo__footer {
-    width: 90px;
-  }
-
-  .modal-body__text {
+  .btn-copy-trading  {
     font-size: 1rem;
-    line-height: 1.2rem;
+    padding: 15px;
+  }
+
+  .copy-trading__title {
+    margin-bottom: 20px;
+  }
+
+  .start-generating__list,
+  .start-generating__item {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 10px;
+  }
+
+  .start-generating__list {
+    gap:50px;
+    margin-bottom: 50px;
+  }
+
+  .copy-trading__social-media {gap: 10px;}
+
+  .start-generating__title {
+    font-size: 20px;
+  }
+
+  .what-copy__img-description {
+    line-height: 20px;
+  }
+
+  .what-copy__list {
+    margin: 50px 0 0;
   }
 }
 
 @media (max-width: 375px) {
-  .article-make-money-item___header,
-  .article-make-money__item-header {
-    margin-bottom: 10px;
-  }
-  .article-make-money__header::after {
-    top: 30px;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
+  .copy-trading__description-wrapper {margin-bottom: 0;}
+  .copy-trading-hero {
+    padding: 80px 0 50%;
   }
 
-  .article-hero-section {
-    padding: 90px 0 50px;
+  .copy-trading__description {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .banner-left-img {
-    padding: 150px 0 0;
+  .copy-trading__header {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
+  
 }
 
+
 @media (max-width: 320px) {
-  .article-hero__title,
-  .article-make-money-item___header,
-  .article-make-money__title,
-  .article-make__amazon-header,
-  .article-investing__title,
-  .article-investing__sub-description {
-    font-size: 18px;
-    line-height: 27px;
-  }
-
-  .article-make-money-item___header {
-    line-height: 36px;
-  }
-
-  .article-investing__link {
-    font-size: 14px;
-  }
-
-  .article-make-money-item___header,
-  .article-make-money__item-header {
-    font-size: 1rem;
-    margin-bottom: 0;
-  }
-
-  .article-make-money__title {
-    margin-bottom: 14px;
-  }
-
-  .article-make-money__header {
-    padding: 50px 20px 30px;
+  .copy-trading__paragraph {
+    font-size: 15px;
   }
 }
